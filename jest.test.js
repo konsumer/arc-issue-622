@@ -6,6 +6,7 @@
 process.env.QUIET = true
 
 const sandbox = require('@architect/sandbox')
+const arc = require('@architect/functions')
 
 // this uses hoisted-var to track the shutdown function for sandbox
 let end
@@ -22,5 +23,10 @@ describe('jest', () => {
   it('should have started sandbox', () => {
     expect(end).toBeDefined()
     expect(typeof end).toEqual('function')
+  })
+
+  it('should create tables interface correctly', async () => {
+    const data = await arc.tables()
+    console.log(data)
   })
 })
