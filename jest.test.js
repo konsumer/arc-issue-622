@@ -24,9 +24,4 @@ describe('jest', () => {
     expect(end).toBeDefined()
     expect(typeof end).toEqual('function')
   })
-
-  it('should create tables interface correctly', async () => {
-    const data = await arc.tables()
-    console.log(data)
-  })
 })
