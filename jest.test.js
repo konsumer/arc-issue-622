@@ -3,6 +3,8 @@
 /* global describe, it, expect, beforeAll, afterAll */
 
 const sandbox = require('@architect/sandbox')
+
+// this causes async-hang
 // const arc = require('@architect/functions')
 
 describe('jest', () => {
