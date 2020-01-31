@@ -2,26 +2,14 @@
 
 /* global describe, it, expect, beforeAll, afterAll */
 
-// this is to get around no options for start, ala architect/architect/#621
-process.env.QUIET = true
-
 const sandbox = require('@architect/sandbox')
-const arc = require('@architect/functions')
-
-// this uses hoisted-var to track the shutdown function for sandbox
-let end
-beforeAll(async () => {
-  console.log('Starting sandbox')
-  end = await sandbox.start()
-})
-afterAll(async () => {
-  console.log('Stopping sandbox')
-  await end()
-})
+// const arc = require('@architect/functions')
 
 describe('jest', () => {
-  it('should have started sandbox', () => {
+  it('should have started sandbox', async () => {
+    const end = await sandbox.start({ quiet: true })
     expect(end).toBeDefined()
     expect(typeof end).toEqual('function')
+    await end()
   })
 })
