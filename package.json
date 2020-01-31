@@ -11,7 +11,7 @@
   "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
   "license": "MIT",
   "devDependencies": {
-    "@architect/sandbox": "1.5.9-RC.1",
+    "@architect/sandbox": "1.5.9-RC.2",
     "jest": "^25.1.0"
   },
   "dependencies": {

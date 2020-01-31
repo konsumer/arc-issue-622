@@ -2,16 +2,22 @@
 
 /* global describe, it, expect, beforeAll, afterAll */
 
-const sandbox = require('@architect/sandbox')
-
 // this causes async-hang
 // const arc = require('@architect/functions')
 
+const sandbox = require('@architect/sandbox')
+
+beforeAll(async () => {
+  console.log('Sandbox: start')
+  await sandbox.start({ quiet: true })
+})
+afterAll(async () => {
+  console.log('Sandbox: end')
+  await sandbox.end()
+})
+
 describe('jest', () => {
   it('should have started sandbox', async () => {
-    const end = await sandbox.start({ quiet: true })
-    expect(end).toBeDefined()
-    expect(typeof end).toEqual('function')
-    await end()
+    expect(sandbox.db).toBeDefined()
   })
 })
