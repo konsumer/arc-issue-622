@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jest be able to get table-list 1`] = `
+Array [
+  "arc-sessions",
+  "jesttest",
+  "reflect",
+  "_name",
+]
+`;
