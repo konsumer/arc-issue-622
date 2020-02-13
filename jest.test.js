@@ -2,20 +2,21 @@
 
 /* global describe, it, expect, beforeAll, afterAll */
 
-const arc = require('@architect/functions')
-
 const sandbox = require('@architect/sandbox')
+
+let tables
 
 beforeAll(async () => {
   await sandbox.start({ quiet: true })
+  const arc = require('@architect/functions')
+  tables = await arc.tables()
 })
 afterAll(async () => {
   await sandbox.end()
 })
 
 describe('jest', () => {
-  it('should have unit-tests', async () => {
-    const data = await arc.tables()
-    expect(Object.keys(data)).toMatchSnapshot()
+  it('should know what tables are available', async () => {
+    expect(tables).toBeDefined()
   })
 })
